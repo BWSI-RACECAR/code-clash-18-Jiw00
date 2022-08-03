@@ -57,9 +57,9 @@ class Solution:
         
         for m in mana_list:
             if m in copy:
-                for i,w in enumerate(copy):
+                for index,w in enumerate(copy):
                     if w == m:
-                        copy.pop(i)
+                        copy = copy[0 : index : ] + copy[index + 1 : :]
                         break
             else:
                 return False
