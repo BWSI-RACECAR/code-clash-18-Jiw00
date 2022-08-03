@@ -44,7 +44,7 @@ class Solution:
         # return: bool
         
         for i in cost:
-            if j in pool:
+            if i in pool:
                 pool = pool.replace(i, '', 1)
                 cost = cost.replace(i, '', 1)
         if len(cost) == 0:
