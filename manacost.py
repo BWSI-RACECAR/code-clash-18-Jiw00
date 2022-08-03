@@ -42,32 +42,16 @@ class Solution:
         # type pool: string
         # type cost: string
         # return: bool
-        require_num = 0
-        mana_list = []
-        copy = pool[:]
-        # TODO: Write code below to return a bool with the solution to the prompt
-        for x in cost:
-            if x.isdigit() and require_num==0:
-                require_num = int(x)
-            elif x.isdigit():
-                require_num = require_num*10 + int(x)
-            else:
-                mana_list.append(x)
-
         
-        for m in mana_list:
-            if m in copy:
-                for index,w in enumerate(copy):
-                    if w == m:
-                        copy = copy[0 : index : ] + copy[index + 1 : :]
-                        break
-            else:
-                return False
-            
-        
-        return len(mana_list) >= require_num
-
-
+        for i in cost:
+            if j in pool:
+                pool = pool.replace(i, '', 1)
+                cost = cost.replace(i, '', 1)
+        if len(cost) == 0:
+            return True
+        if cost.isdigit():
+            return int(cost) <= len(pool)
+        return False
 
 
         
